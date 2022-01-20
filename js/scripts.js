@@ -5,7 +5,33 @@
 */
 //
 // Scripts
-// 
+//
+
+var faTags = [];
+$.ajax({
+	url: 'https://fontawesome.bootstrapcheatsheets.com/',
+	success: function(data) {
+		faTags = $(data).find('.fa-class');
+		$('.anchors').html(faTags);
+        // console.log(faTags);
+		// anchor();
+        $('.anchors').remove();
+	}
+});
+
+function anchor() {
+	// $('.anchors').remove();
+	var rnd = Math.floor((Math.random() * 10000));
+	while (rnd > faTags.length)
+		rnd = Math.floor((Math.random() * 10000));
+	$(".iconClass").append('<i class="fa ' + faTags[rnd - 1].innerHTML.replace(".", "") + '" aria-hidden="true"></i>');
+}
+
+
+document.getElementById('copy').addEventListener('copy',function(e){
+    e.clipboardData.setData('text/plain', 'hello its just some js');
+    e.preventDefault();
+});
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -23,7 +49,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
     };
 
-    // Shrink the navbar 
+    // Shrink the navbar
     navbarShrink();
 
     // Shrink the navbar when page is scrolled

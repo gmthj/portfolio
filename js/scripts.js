@@ -29,7 +29,7 @@ function anchor() {
 
 
 document.getElementById('copy').addEventListener('copy',function(e){
-    e.clipboardData.setData('text/plain', 'hello its just some js');
+    e.clipboardData.setData('text/plain', 'yeah it\'s just some JavaScript idk');
     e.preventDefault();
 });
 
